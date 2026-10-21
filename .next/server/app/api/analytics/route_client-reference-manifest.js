@@ -1,0 +1,1 @@
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/analytics/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"/Users/gkm/Downloads/GKM/LE/HM-Ayurveda/app/api/analytics/route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

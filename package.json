@@ -1,0 +1,43 @@
+{
+  "name": "ayur-pos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Lightweight retail POS & inventory ERP for Kottakkal Arya Vaidya Sala dealership with intelligent dual split-invoicing",
+  "scripts": {
+    "dev": "next dev --webpack --hostname 127.0.0.1 -p 3005",
+    "build": "prisma generate && prisma db push && tsx prisma/seed.ts && next build --webpack",
+    "render:build": "prisma generate && prisma db push && tsx prisma/seed.ts && next build --webpack",
+    "start": "prisma db push --skip-generate && tsx prisma/seed.ts && next start",
+    "db:push": "prisma db push",
+    "db:seed": "tsx prisma/seed.ts",
+    "test": "tsx scripts/regression.ts",
+    "typecheck": "tsc --noEmit",
+    "db:setup": "tsx scripts/setup.ts",
+    "postinstall": "prisma generate",
+    "audit:data": "tsx scripts/audit-data.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "exceljs": "^4.4.0",
+    "lucide-react": "^1.45.0",
+    "next": "16.3.5",
+    "prisma": "^6.19.3",
+    "qrcode": "^1.5.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.13",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@next/swc-darwin-arm64": "^16.4.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

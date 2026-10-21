@@ -1,0 +1,1 @@
+globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/auth/pin/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"/Users/gkm/Downloads/GKM/LE/HM-Ayurveda/app/api/auth/pin/route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};

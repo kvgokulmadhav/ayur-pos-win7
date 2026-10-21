@@ -1,0 +1,9 @@
+# Runtime
+node.exe
+runtime/
+*.log
+.DS_Store
+
+# Preserved
+!prisma/ayur_pos.db
+!Dealer Indent Format - Latest.xlsx
