@@ -1,9 +1,22 @@
 const path = require('path')
+const fs = require('fs')
 
-const dir = path.join(__dirname)
+let dir = path.join(__dirname)
+
+// Auto-detect if .next is inside unzipped subfolder (e.g. ayur-pos-win7-main)
+if (!fs.existsSync(path.join(dir, '.next', 'BUILD_ID'))) {
+  const subdirs = ['ayur-pos-win7-main', 'ayur-pos-win7']
+  for (const sub of subdirs) {
+    const candidate = path.join(dir, sub)
+    if (fs.existsSync(path.join(candidate, '.next', 'BUILD_ID'))) {
+      dir = candidate
+      break
+    }
+  }
+}
 
 process.env.NODE_ENV = 'production'
-process.chdir(__dirname)
+process.chdir(dir)
 
 const currentPort = parseInt(process.env.PORT, 10) || 3000
 const hostname = process.env.HOSTNAME || '0.0.0.0'

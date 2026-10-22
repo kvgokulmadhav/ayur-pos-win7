@@ -68,6 +68,37 @@ if "%NODE_EXEC%"=="" (
     exit /b 1
 )
 
+:: Check for .next build folder
+if not exist "%~dp0.next\BUILD_ID" (
+    if exist "%~dp0ayur-pos-win7-main\.next\BUILD_ID" (
+        echo [INFO] Detected files inside ayur-pos-win7-main subfolder.
+        echo [INFO] Moving files to %~dp0 ...
+        xcopy /E /Y /I "%~dp0ayur-pos-win7-main\*" "%~dp0" >nul 2>nul
+    ) else if exist "%~dp0ayur-pos-win7\.next\BUILD_ID" (
+        echo [INFO] Detected files inside ayur-pos-win7 subfolder.
+        echo [INFO] Moving files to %~dp0 ...
+        xcopy /E /Y /I "%~dp0ayur-pos-win7\*" "%~dp0" >nul 2>nul
+    )
+)
+
+if not exist "%~dp0.next\BUILD_ID" (
+    echo =====================================================================
+    echo  [ERROR] Cannot find the compiled app folder (.next\BUILD_ID)
+    echo =====================================================================
+    echo.
+    echo  The application requires the '.next' folder to run.
+    echo.
+    echo  Current directory: %~dp0
+    echo  Current folder contents:
+    dir /b /a "%~dp0"
+    echo.
+    echo  Make sure you extracted the full repo (including the '.next' folder).
+    echo =====================================================================
+    echo.
+    pause
+    exit /b 1
+)
+
 echo [INFO] Starting AyurPOS server on http://localhost:3005 ...
 echo [INFO] Keep this window open during shop hours.
 echo [INFO] To stop the server when closing shop, close this window or run Stop-AyurPOS-Win7.bat.
