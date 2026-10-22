@@ -9,12 +9,13 @@ echo.
 
 cd /d "%~dp0"
 
-:: Set Environment Variables
+:: Set Environment Variables and DLL Search Path for Windows 7
 set PORT=3005
 set HOSTNAME=0.0.0.0
 set DATABASE_URL=file:./prisma/ayur_pos.db
 set NODE_ENV=production
 set NODE_SKIP_PLATFORM_CHECK=1
+set "PATH=%~dp0;%~dp0node_modules\.prisma\client;%PATH%"
 
 :: Determine Node.js binary
 set "NODE_EXEC="
