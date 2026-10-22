@@ -1,6 +1,6 @@
 # Runtime
 node.exe
-runtime/
+/runtime/
 *.log
 .DS_Store
 
