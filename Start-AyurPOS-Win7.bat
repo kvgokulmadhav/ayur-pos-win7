@@ -104,8 +104,8 @@ echo [INFO] Keep this window open during shop hours.
 echo [INFO] To stop the server when closing shop, close this window or run Stop-AyurPOS-Win7.bat.
 echo.
 
-:: Automatically open browser after 2 seconds
-start "" cmd /c "timeout /t 2 /nobreak >nul & start http://localhost:3005"
+:: Automatically open browser (Chrome preferred) after 2 seconds
+start "" cmd /c "ping -n 3 127.0.0.1 >nul & if exist \"%ProgramFiles%\Google\Chrome\Application\chrome.exe\" (start \"\" \"%ProgramFiles%\Google\Chrome\Application\chrome.exe\" \"http://localhost:3005\") else if exist \"%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe\" (start \"\" \"%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe\" \"http://localhost:3005\") else if exist \"%LocalAppData%\Google\Chrome\Application\chrome.exe\" (start \"\" \"%LocalAppData%\Google\Chrome\Application\chrome.exe\" \"http://localhost:3005\") else (start http://localhost:3005)"
 
 :: Launch Next.js standalone production server
 "%NODE_EXEC%" server.js
